@@ -195,7 +195,7 @@ class TensorBoard(object):
     for loader in self.plugin_loaders:
       loader.fix_flags(flags)
     if flags.path_prefix is "":
-      flags.path_prefix = os.getenv["TB_PATH_PREFIX"]
+      flags.path_prefix = os.getenv("TB_PATH_PREFIX")
     self.flags = flags
     return [arg0]
 
