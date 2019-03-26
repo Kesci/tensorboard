@@ -194,6 +194,8 @@ class TensorBoard(object):
       setattr(flags, k, v)
     for loader in self.plugin_loaders:
       loader.fix_flags(flags)
+    if flags.path_prefix is "" and not os.getenv("TB_PATH_PREFIX"):
+      flags.path_prefix = os.getenv("TB_PATH_PREFIX")
     self.flags = flags
     return [arg0]
 
